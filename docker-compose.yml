@@ -1,0 +1,35 @@
+# Docker-Compose file to make running the old FINclude containers easier
+version: '3'
+
+services:
+    edgeservice:
+        hostname: localhost
+        container_name: edgeservice
+        build:
+            context: ./edgeservice
+            dockerfile: dockerfile
+        image: finclude-edgeservice:new
+        ports:
+            - 8000:8000
+        depends_on:
+            - mlservice
+    uiservice:
+        hostname: localhost
+        container_name: uiservice
+        build:
+            context: ./uiservice
+            dockerfile: Dockerfile
+        image: finclude-uiservice:new
+        ports:
+            - 4200:4200
+        depends_on:
+            - edgeservice
+    mlservice:
+        hostname: localhost
+        container_name: mlservice
+        build:
+            context: ./ml
+            dockerfile: Dockerfile
+        image: finclude-mlservice:new
+        ports:
+            - 8001:8001
