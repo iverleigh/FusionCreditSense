@@ -1,5 +1,9 @@
 # Fusion CreditSense
-Fusion CreditSense - Giving credit where credit is due
+Fusion CreditSense - Giving credit where credit is due.<br> 
+Winner of the Hack to the Future Hackathon 2020 for Best Social Impact. <br>
+Team members: IV Yoo (ML), Philip Crisp (Software Dev), Alan Prowse-McLean (Software Dev), and Chloe Luo (UI/UX).<br>
+https://devpost.com/software/fusion-creditsense
+
 
 ## Folder structure
 - edgeservice: Edge service module to bring all the components together module [README](./edgeservice/README.md)
