@@ -1,0 +1,307 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ffdc/uxg-angular-theme/lib/core/core";
+@import "~@ffdc/uxg-angular-theme/lib/core/theming/all-theme";
+@import "~@ffdc/uxg-angular-theme/lib/core/typography/typography";
+@import "~@ffdc/uxg-angular-theme/theme-variables";
+
+@import "~@ffdc/uxg-angular-components/global-nav/global-nav.theme";
+
+@include uxg-core();
+
+// Add components typography mixins inside this mixin
+@mixin app-typography($typography) {
+}
+
+// Add components theme mixins inside this mixin
+@mixin app-theme($theme) {
+    @include uxg-material-theme($theme);
+    @include uxg-global-nav-theme($theme);
+}
+
+@include app-typography(uxg-typography-config());
+
+@include app-theme($uxg-light-theme);
+
+@media (prefers-color-scheme: dark) {
+    @include app-theme($uxg-dark-theme);
+}
+
+// Define custom colors
+$white: #ffffff;
+$violet: #694ED6;
+$fuchsia: #C137A2;
+$charcoal: #414141;
+$crimson: #E40046;
+$amber: #FF8A3D;
+$grass: #56C271;
+$gold: #F0B323;
+$lime: #D2D755;
+$ocean: #5BC1D7;
+
+@font-face {
+    font-family: "Futura EF";
+    src: url('/assets/FuturaEF-Medium.otf') format("opentype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Futura EF";
+    src: url('/assets/FuturaEF-Bold.otf') format("opentype");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Futura EF";
+    src: url('/assets/FuturaEF-Light.otf') format("opentype");
+    font-weight: lighter;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1 0 auto;
+}
+
+app-root {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1 0 auto;
+}
+
+#layout {
+    padding: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 600px;
+}
+
+.ribbons {
+    background-image: url(/assets/lt.png), url(/assets/rb.jpg);
+    background-position: left top, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    padding-bottom: 240px !important;
+}
+
+#main-toolbar {
+    box-shadow: 0 4px 4px -4px #d4d4d4;
+}
+
+#main-toolbar .uxg-logo {
+    margin-right: 43px;
+}
+
+#content {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#content-full {
+    width: 100%;
+    height: 100%;
+}
+
+#login-content {
+    width: 100%;
+}
+
+#login-image {
+    min-width: 500px;
+    min-height: 1024px;
+    background-image: url(/assets/login.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+#login-area {
+    width: 100%;
+    padding-left: 105px;
+    padding-right: 30px;
+}
+
+#login-logo {
+    margin-top: 165px;
+    margin-bottom: 70px;
+}
+
+#login-heading {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Roboto;
+    color: #414141;
+    margin-left: 19px;
+    margin-bottom: 100px;
+}
+
+#login-form {
+    margin-left: 19px;
+}
+
+#login-form .mat-form-field-infix {
+    width: 328px;
+}
+
+#login-form .mat-form-field {
+    margin-bottom: 36px;
+}
+
+#login-footer {
+    margin-left: 135px;
+    margin-top: 310px;
+}
+
+#login-footer a {
+    margin-right: 20px;
+}
+
+#login-footer .support-link {
+    color: $violet;
+}
+
+#login-footer .finastra-link {
+    color: $fuchsia;
+}
+
+#login-image {
+    width: 808px;
+    height: 1024px;
+    background-image: url("assets/login.jpg");
+    background-repeat: no-repeat;
+    background-position: -520px, 0px;
+}
+
+finclude-credit-application {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+#logo {
+    margin-top: 20px;
+}
+
+#title {
+    color: $fuchsia;
+    margin-top: 5px;
+    font-weight: bold;
+    letter-spacing: 0.48px;
+}
+
+#subtitle {
+    color: $violet;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#disclaimer {
+    color: $charcoal;
+    font-weight: bold;
+    font-family: "Roboto Medium", "Roboto", "roboto", "Helvetica Neue", sans-serif;
+}
+
+finclude-credit-application .mat-stepper-horizontal {
+    background-color: transparent !important;
+}
+
+#credit-stepper .mat-horizontal-stepper-header-container {
+    min-width: 700px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.mat-step-label {
+    font-size: 12px;
+}
+
+.mat-step-label-selected {
+    font-size: 12px;
+}
+
+.mat-step-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.mat-step-icon-content {
+    font-size: 12px;
+}
+
+#credit-stepper button + button {
+    margin-left: 20px;
+}
+
+#credit-stepper .step-form {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#credit-stepper .mat-form-field-infix  {
+    width: 260px;
+}
+
+#credit-stepper finclude-loader {
+    margin-left: 40px;
+}
+
+.analysis-subhead {
+    margin-top: 52px;
+    color: $violet;
+}
+
+.sample-text {
+    max-width: fit-content;
+}
+
+.credit-analysis {
+    margin-top: 36px;
+    margin-bottom: 135px;
+}
+
+.credit-analysis mat-icon {
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+.credit-suggestion {
+    font-size: 24px;
+    color: $fuchsia !important;
+}
+
+#apply-dialog {
+    width: 470px;
+}
+
+#apply-dialog .uxg-subtitle-1 {
+    color: rgba(65,65,65,0.6);
+}
+
+#apply-dialog .going-to {
+    width: 100%;
+    text-align: center;
+    font: 700 18px/21px "Futura EF", "futura-pt", "Futura", "Hind", "Verdana", "Arial Black", sans-serif;
+    margin-top: 50px;
+}
+
+#apply-dialog #bank-logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 58px;
+}
+
+#apply-dialog #bank-logo img {
+    width: 130px;
+}
+
+.gap {
+    margin-right: 20px;
+}
+
+.space-below {
+    margin-bottom: 20px;
+}

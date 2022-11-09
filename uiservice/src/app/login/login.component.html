@@ -1,0 +1,25 @@
+<div fxFlex fxLayout="row" fxLayoutAlign="start start" id="login-content">
+    <div fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="start start" id="login-area">
+        <div id="login-logo"><img src="/assets/logo-login.png" /></div>
+        <div id="login-heading">Welcome to Fusion CreditSense</div>
+        <div id="login-form" fxFlex fxLayout="column" fxLayoutAlign="start end" [formGroup]="loginForm">
+            <mat-form-field floatLabel="false">
+                <input matInput formControlName="username" placeholder="User ID" required />
+                <mat-hint>Please enter your username or ID</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="false">
+                <input matInput type="password" formControlName="password" placeholder="Password" required />
+                <mat-hint>Please enter your password</mat-hint>
+            </mat-form-field>
+            <button mat-flat-button color="primary" (click)="login()">
+                <mat-icon>arrow_right_alt</mat-icon>
+                Login
+            </button>
+        </div>
+        <div id="login-footer">
+            <a href="" class="uxg-body-2 support-link">Support</a>
+            <span href="" class="uxg-body-2 finastra-link">Finastra.com</span>
+        </div>
+    </div>
+    <div fxFlex="1 0 auto" fxLayout="col"><div id="login-image"></div></div>
+</div>

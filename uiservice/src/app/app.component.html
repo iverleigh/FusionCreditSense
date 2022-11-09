@@ -1,0 +1,34 @@
+<div id="layout" [class]="(router.url != '/login' ? 'ribbons' : '')" fxFlex="1 0 auto" fxLayout="column" fxLayoutAlign="start center">
+    <mat-toolbar id="main-toolbar" class="uxg-toolbar" *ngIf="router.url != '/login'">
+        <button mat-icon-button class="uxg-toolbar-menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="uxg-logo" dense></div>
+        <div class="uxg-h6">Fusion CreditSense</div>
+        <span class="fill-remaining-space"></span>
+        <div>
+            <button mat-icon-button color="neutral">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button mat-icon-button color="neutral">
+                <mat-icon>notifications</mat-icon>
+            </button>
+            <button mat-icon-button color="neutral">
+                <mat-icon>help_outline</mat-icon>
+            </button>
+            <button mat-icon-button color="gradient">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <button mat-icon-button color="neutral">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+
+    <div id="content" *ngIf="router.url != '/login'" fxFlex="1 0 auto" fxLayout="column">
+        <router-outlet></router-outlet>
+    </div>
+    <div id="content-full" *ngIf="router.url == '/login'" fxFlex="1 0 100%" fxLayout="column">
+        <router-outlet></router-outlet>
+    </div>
+</div>

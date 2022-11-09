@@ -1,0 +1,20 @@
+.finclude-loader {
+    display: inline-block;
+}
+.finclude-loader-inner {
+    display: block;
+    //margin: 8px;
+    border-radius: 50%;
+    border: solid #C137A2;
+    border-color: #C137A2 transparent #C137A2 transparent;
+    animation: finclude-loader 1.2s linear infinite;
+}
+
+@keyframes finclude-loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

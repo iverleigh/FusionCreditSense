@@ -1,0 +1,81 @@
+<div fxFlex fxLayout="column" fxLayoutAlign="start center">
+    <img id="logo" src="/assets/love.png">
+    <h4 id="title" class="uxg-h4">Fusion CreditSense</h4>
+    <h4 id="subtitle" class="uxg-h4">Giving credit where credit is due</h4>
+
+    <p id="disclaimer" class="uxg-subtitle-1">This application will analyse your client's banking history to give an indication of reliability for credit.</p>
+
+    <mat-horizontal-stepper #stepper [linear]="true" id="credit-stepper" (selectionChange)="onStepChange($event)">
+        <mat-step label="User & Client Details" [stepControl]="clientDetailsForm">
+            <div class="step-form" [formGroup]="clientDetailsForm" fxFlex fxLayout="column" fxLayoutAlign="start start">
+                <mat-form-field floatLabel="false" appearance="fill" class="space-below">
+                    <input matInput formControlName="clientName" placeholder="Client Name" required />
+                    <mat-hint>Input Client's first name then last name</mat-hint>
+                </mat-form-field>
+                <mat-form-field floatLabel="false" appearance="fill">
+                    <input matInput formControlName="clientAge" placeholder="Client Age" required />
+                </mat-form-field>
+                <mat-form-field floatLabel="false" appearance="fill">
+                    <input matInput formControlName="company" placeholder="Company" required />
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-flat-button matStepperNext color="primary">Next</button>
+            </div>
+        </mat-step>
+        <mat-step label="Client Bank Details" [stepControl]="bankDetailsForm">
+            <div class="step-form" [formGroup]="bankDetailsForm" fxFlex fxLayout="row" fxLayoutAlign="start start">
+                <div fxFlex="0 0 auto" fxLayout="column">
+                    <mat-form-field floatLabel="false" appearance="fill">
+                        <mat-select formControlName="bankName" placeholder="Client Bank" required>
+                            <mat-option *ngFor="let bank of (banks$ | async)" [value]="bank.name">{{ bank.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="false" appearance="fill">
+                        <input matInput formControlName="accountNumber" placeholder="Account Number" required />
+                    </mat-form-field>
+                    <mat-form-field floatLabel="false" appearance="fill">
+                        <input matInput formControlName="sortCode" placeholder="Sort Code" required />
+                    </mat-form-field>
+                </div>
+                <div fxFlex="1 1 auto" fxLayout="column">
+                    <finclude-loader *ngIf="loading$ | async"></finclude-loader>
+                </div>
+            </div>
+            <div>
+                <button mat-stroked-button matStepperPrevious color="primary">Back</button>
+                <button mat-flat-button matStepperNext color="primary">Get Results</button>
+            </div>
+        </mat-step>
+        <mat-step label="Results">
+            <div class="step-form">
+                <div *ngIf="credibility$ | async">
+                    <p class="uxg-subtitle-1 analysis-subhead">Transaction Analysis:</p>
+                    <h5 class="uxg-h5">{{ credibility$ | async }}% financial credibility</h5>
+                    <p class="sample-text">After analysis of the provided transactions, this is your financial credibility score. Our suggested small-dollar loan is derived based on your transactions record as well as this creditworthiness score. These two metrics are calculated by two separate machine learning models that take into account various features and aggregations surrounding your transaction history.</p>
+                </div>
+                <div *ngIf="prediction$ | async" class="credit-analysis">
+                    <h5 class="uxg-h5">We suggest an initial credit line of
+                        <span class="credit-suggestion">{{ prediction$ | async }}</span>
+                        <mat-icon color="primary">info_outline</mat-icon>
+                    </h5>
+                </div>
+                <div *ngIf="customer$ | async">
+                    <p class="uxg-subtitle-1">Customer ID for loan request: {{ customer$ | async }}</p>
+                </div>
+                <div *ngIf="message$ | async">
+                    <h5 class="uxg-h5">{{ message$ | async }}</h5>
+                </div>
+                <finclude-loader *ngIf="loading$ | async"></finclude-loader>
+            </div>
+            <div>
+                <button mat-stroked-button matStepperPrevious color="primary">Back</button>
+                <button mat-stroked-button color="primary" (click)="reset(); stepper.reset();">Reset</button>
+                <button mat-flat-button color="primary" (click)="apply()" [disabled]="!(customer$ | async)">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Apply Line of Credit
+                </button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

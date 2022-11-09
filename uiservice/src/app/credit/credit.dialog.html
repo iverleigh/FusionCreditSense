@@ -1,0 +1,14 @@
+<div id="apply-dialog">
+    <h6 mat-dialog-title class="uxg-h6">Leaving Fusion CreditSense</h6>
+    <div mat-dialog-content class="mat-typography">
+        <p class="uxg-subtitle-1">You will be directed to your bank to perform the application. Are you sure you want to leave this page?</p>
+        <h5 class="uxg-h5 going-to">You’re going to…</h5>
+        <div id="bank-logo">
+            <img id="bank-logo-image" src="/assets/hsbc-logo.png">
+        </div>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-button color="primary" [mat-dialog-close]="false">Stay on this page</button>
+        <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Continue</button>
+    </div>
+</div>
