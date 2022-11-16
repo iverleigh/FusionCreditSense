@@ -2,7 +2,7 @@
 Fusion CreditSense - Giving credit where credit is due.<br> 
 Winner of the Hack to the Future Hackathon 2020 for Best Social Impact. <br>
 Team members: IV Yoo (ML), Philip Crisp (Software Dev), Alan Prowse-McLean (Software Dev), and Chloe Luo (UI/UX).<br>
-Checkout the details and award of our hackathon submission <a href="https://devpost.com/software/fusion-creditsense">here</a>.
+Check out the details and award of our hackathon submission <a href="https://devpost.com/software/fusion-creditsense">here</a>.
 
 
 
